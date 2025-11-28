@@ -21,6 +21,10 @@ export enum TabId {
 export enum UrlPath {
     LOGIN = '/login',
     ERROR = '/error',
+    TEST = '/test',
+    NORMAL = '/normal',
+    PRIVATE = '/private',
+    CODE_HANDLER = '/codeHandler',
     LOBBY = '/',
     VIEW_ORG = '/ViewOrg',
     NONE = '',

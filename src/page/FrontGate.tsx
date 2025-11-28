@@ -42,7 +42,7 @@ const FrontGate = () => {
         },
         onSuccess: (data) => {
             if(data.code === 0) {
-                auth.authLogin(getValues('userId'));
+                auth.appLogin(getValues('userId'));
                 nav('/');
             }
         }

@@ -84,7 +84,8 @@ export interface StorageMethod {
 }
 export interface AuthMethod {
   authData: AuthData;
-  authLogin: (userId: string) => void;
+  appLogin: (userId: string) => void;
+  appLogout: () => void;
   authLogout: () => void;
 }
 export interface PopUpMethod {

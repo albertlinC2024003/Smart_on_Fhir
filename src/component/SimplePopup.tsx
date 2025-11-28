@@ -1,4 +1,4 @@
-import {Box, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, SxProps} from "@mui/material"
+import {Box, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, type SxProps} from "@mui/material"
 import CloseIcon from '@mui/icons-material/Close'
 
 interface SimplePopupProps {

@@ -7,6 +7,10 @@ export enum AuthStatus {
 export enum StorageKey{
   csrf = 'csrf',
   userId = 'userId',
+  pkce = 'pkce',
+  accessToken = 'accessToken',
+  refreshToken = 'refreshToken',
+  idToken = 'idToken',
 }
 
 export enum PermissionId {

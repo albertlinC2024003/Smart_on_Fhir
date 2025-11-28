@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormContext, Controller } from 'react-hook-form';
-import { Box, FormControl, FormLabel, FormGroup, FormControlLabel, Checkbox, FormHelperText } from '@mui/material';
+import { Box, FormControl, FormGroup, FormControlLabel, Checkbox, FormHelperText } from '@mui/material';
 import type {ComponentOption, FormInputProps} from '../../../dto/componentObj';
 interface CustomFormCheckBoxProps extends FormInputProps {
     // 只給這個元件用的屬性

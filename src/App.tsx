@@ -5,6 +5,7 @@ import AuthProvider from "./utils/module/AuthProvider.tsx";
 import { Provider } from 'react-redux'
 import MyRouter from "./route/route.tsx";
 import store from "./utils/module/reduxStore.ts";
+import './assets/css/tailwind.css'
 
 const theme = createTheme({
     palette: {

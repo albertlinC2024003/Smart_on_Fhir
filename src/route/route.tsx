@@ -4,9 +4,7 @@ import PathListener, {UrlPath} from "../utils/module/PathListener";
 import { AuthStatus, PermissionId } from "../enum/system";
 import { useProvider } from "../utils/ComponentProvider";
 
-
-
-interface SidebarItem { 
+interface SidebarItem {
     barName: string,
     url: UrlPath
     permissionId: PermissionId
@@ -16,9 +14,6 @@ export const sidebarItems: SidebarItem[] = [
     { barName: '機構管理', url: UrlPath.VIEW_ORG, permissionId: PermissionId.CLOUD },
 ]
 
-interface ProtectedProps {
-    children: React.ReactNode
-}
 const ProtectedRouter = () => {
     const { auth } = useProvider();
     if (auth.authData.status === AuthStatus.Auth_SignedIn) {
@@ -40,7 +35,31 @@ const routerData = createBrowserRouter(
         {
             path: UrlPath.LOGIN,
             element: (
-                <Page.LoginView />
+                <Page.Test />
+            )
+        },
+        {
+            path: UrlPath.TEST,
+            element: (
+                <Page.Test />
+            )
+        },
+        {
+            path: UrlPath.NORMAL,
+            element: (
+                <Page.Normal />
+            )
+        },
+        {
+            path: UrlPath.PRIVATE,
+            element: (
+                <Page.Private />
+            )
+        },
+        {
+            path: UrlPath.CODE_HANDLER,
+            element: (
+                <Page.CodeHandler />
             )
         },
         {

@@ -21,11 +21,11 @@ const Private = () => {
         console.log("選擇的 scope:", scopes);
     };
 
-    // const { data } = useQuery({
-    //     queryKey: ['privateData'],
-    //     queryFn: getPrivate,
-    //     retry: false,
-    // });
+    const { data } = useQuery({
+        queryKey: ['privateData'],
+        queryFn: getPrivate,
+        retry: false,
+    });
 
     return (
         <Box className="flex flex-col items-center justify-center h-screen w-full text-2xl">

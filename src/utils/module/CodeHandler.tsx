@@ -40,7 +40,8 @@ const CodeHandler = () => {
             tokenParams.append('redirect_uri', TOKEN_REDIRECT_URL);
             tokenParams.append('code', code);
             tokenParams.append('code_verifier', codeVerifier);
-
+            console.log('tokenUrl=',tokenUrl);
+            console.log('tokenParams=',tokenParams);
             try {
                 // 4. 發送請求交換 token
                 // 注意：這裡使用原始 axios，因為交換 token 的請求不需要帶上 CSRF token 等攔截器邏輯

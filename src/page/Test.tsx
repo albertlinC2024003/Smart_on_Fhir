@@ -17,6 +17,7 @@ const Test = () => {
                 <CustomButton text={"登出"} onClick={() => auth.authLogout()} />
                 <CustomButton text={"普通資料"} onClick={() => handleNavigate('/normal')} />
                 <CustomButton text={"機密資料"} onClick={() => handleNavigate('/private')} />
+                <CustomButton text={"Fhir資料"} onClick={() => handleNavigate('/fhirGetter')} />
             </Box>
         </Box>
     )

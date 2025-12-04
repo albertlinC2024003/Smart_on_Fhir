@@ -3,6 +3,7 @@ import LoginView from './FrontGate';
 import Test from './Test';
 import Normal from './Normal';
 import Private from './Private';
+import FhirGetter from "./FhirGetter";
 import CodeHandler from '../utils/module/CodeHandler.tsx';
 import Lobby from './Lobby';
 
@@ -13,5 +14,6 @@ export default {
     Test,
     Normal,
     Private,
+    FhirGetter,
     CodeHandler,
 }

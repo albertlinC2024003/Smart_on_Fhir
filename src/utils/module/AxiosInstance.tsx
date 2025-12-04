@@ -1,4 +1,4 @@
-import { ReactNode, useEffect} from 'react'
+import {ReactNode, useEffect, useRef, useState} from 'react'
 import { api } from '../../api/axiosConfig';
 import { useProvider } from '../ComponentProvider';
 import { ResponseData } from '../../dto/apiObj';
@@ -8,13 +8,53 @@ import {sessionS} from "./ProjectStorage.ts";
 import {StorageKey} from "../../enum/system.ts";
 import {NotLoginError, TokenExpiredError} from "../../dto/error.ts";
 import {AUTH_URL, CLIENT_ID, TOKEN_REDIRECT_URL} from "../../auth/authConfig.ts";
+import SimplePopup from "../../component/SimplePopup.tsx";
+import CustomButton from "../../component/input/CustomButton.tsx";
 
 // const sleep = (milliseconds) => {
 //     return new Promise(resolve => setTimeout(resolve, milliseconds));
 // };
 
+
+
 const AxiosInstance = ({children}: {children:ReactNode}) => {
     const {popUp} = useProvider();
+    const [showCountdown, setShowCountdown] = useState(false);
+    const authorizationUrl = useRef<string>('');
+    const [countdown, setCountdown] = useState(3);
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
+    const endTimeRef = useRef<number>(0);
+
+    const handleRedirect = (url: string) => {
+        authorizationUrl.current = url
+        setShowCountdown(true);
+        const duration = 3;
+        endTimeRef.current = Date.now() + duration * 1000;
+        setCountdown(duration);
+
+        timerRef.current = setInterval(() => {
+            const left = Math.max(0, Math.ceil((endTimeRef.current - Date.now()) / 1000));
+            setCountdown(left);
+            if (left <= 0) {
+                clearInterval(timerRef.current!);
+                setShowCountdown(false);
+                handleConfirm();// 倒數結束自動導轉
+            }
+        }, 250); // 0.25秒更新一次，顯示更流暢
+    };
+
+    const handleCancel = () => {
+        if (timerRef.current) clearInterval(timerRef.current);
+        setShowCountdown(false);
+    };
+
+    const handleConfirm = () => {
+        if (timerRef.current) clearInterval(timerRef.current);
+        setShowCountdown(false);
+        console.log("Redirecting to:", authorizationUrl.current);
+        window.location.href = authorizationUrl.current;
+    };
+
     //為了讓axios可以使用hook，所以在這裡添加一個額外的interceptor
     useEffect(() => {
         // 將攔截器改為 async 函式以支援 await
@@ -48,7 +88,8 @@ const AxiosInstance = ({children}: {children:ReactNode}) => {
                     `&code_challenge_method=S256`; // 指定雜湊演算法
                 // 4. 重新導向到授權伺服器
                 console.log('authorizationUrl=',authorizationUrl);
-                window.location.href = authorizationUrl;
+                handleRedirect(authorizationUrl); // 只呼叫這個，不直接跳轉
+                return Promise.reject(error); // 不要 window.location.href
             }
             if (error.response.data.code === 101 || error.response.data.code === 105) {
                 console.log("101 105 redirect to login page");
@@ -65,7 +106,19 @@ const AxiosInstance = ({children}: {children:ReactNode}) => {
             api.interceptors.response.eject(res_interceptor);
         };
     }, [])
-    return children
+    return (
+        <>
+            {children}
+            <SimplePopup
+                title="準備導轉..."
+                openPopup={showCountdown}
+            >
+                <div>即將於 {countdown} 秒後跳轉登入頁</div>
+                <CustomButton text={"取消"} onClick={handleCancel} />
+                <CustomButton text={"前往登入"} onClick={handleConfirm} />
+            </SimplePopup>
+        </>
+    );
 }
 
 export default AxiosInstance

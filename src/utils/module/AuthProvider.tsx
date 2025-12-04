@@ -45,6 +45,8 @@ export const useAuth = () => {
             console.error("Failed to revoke token", error);
             // 即使撤銷失敗，也要繼續執行登出流程
         } finally {
+
+            console.log("準備導轉到登出頁");
             // 步驟 2: 清除前端儲存
             sessionS.removeItem(StorageKey.accessToken);
             sessionS.removeItem(StorageKey.refreshToken);

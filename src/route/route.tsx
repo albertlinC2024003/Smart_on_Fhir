@@ -57,6 +57,12 @@ const routerData = createBrowserRouter(
             )
         },
         {
+            path: UrlPath.FHIR_GETTER,
+            element: (
+                <Page.FhirGetter />
+            )
+        },
+        {
             path: UrlPath.CODE_HANDLER,
             element: (
                 <Page.CodeHandler />

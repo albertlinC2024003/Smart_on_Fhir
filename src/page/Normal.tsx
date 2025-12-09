@@ -3,10 +3,13 @@ import CustomButton from "../component/input/CustomButton.tsx";
 import {useNavigate} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
 import {getNormal} from "../api/auth.ts";
+import {useEffect} from "react";
+import {useProvider} from "../utils/ComponentProvider.tsx";
 
 
 const Normal = () => {
     const navigate = useNavigate();
+    const { fhir } = useProvider();
     const handleNavigate = (path: string) => {
         navigate(path);
     };
@@ -14,6 +17,7 @@ const Normal = () => {
         queryKey: ['normalData'],
         queryFn: getNormal,
     });
+    console.log('fhirJson=',fhir.fhirJson);
     return (
         <Box className="flex flex-col items-center justify-center h-screen w-full text-2xl">
             <Box>以下是普通資料</Box>

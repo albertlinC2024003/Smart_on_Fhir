@@ -1,14 +1,16 @@
 import { Box } from "@mui/material";
 import CustomButton from "../component/input/CustomButton.tsx";
 import {Form, useNavigate} from "react-router-dom";
-import ScopeSelector from "./ScopeSelector.tsx";
 import {useState} from "react";
-import {useMutation, useQuery} from "@tanstack/react-query";
-import {getFhir, getPrivate} from "../api/auth.ts";
+import {useMutation} from "@tanstack/react-query";
+import {getResourceList} from "../api/auth.ts";
 import {useProvider} from "../utils/ComponentProvider.tsx";
-import CustomRadio from "../component/input/CustomRadio.tsx";
 import CustomFormRadio from "../component/input/form/CustomFormRadio.tsx";
 import {FormProvider, useForm} from "react-hook-form";
+import {FhirBundle} from "../dto/dataObj.ts";
+import FhirResourceParser from "./fhir/view/FhirResourceParser.tsx";
+import {FhirResource} from "../enum/component.ts";
+import FhirResourceListReader from "./FhirResourceListReader.tsx";
 
 const options = [
     { label: 'Patient', value: 'Patient' },
@@ -16,47 +18,50 @@ const options = [
     { label: 'Observation', value: 'Observation' },
 ];
 
-const data = {
+interface searchParams {
+    fhirResource: string;
+}
+
+const defaultData: searchParams = {
     fhirResource: 'Patient'
-};
+}
 
 const FhirGetter = () => {
     const navigate = useNavigate();
-    const { popUp } = useProvider();
+    const { fhir } = useProvider();
     const handleNavigate = (path: string) => {
         navigate(path);
     };
 
     const method = useForm({
-        defaultValues: data
+        defaultValues: defaultData
     });
 
     const { mutate: getData } = useMutation({
         mutationFn: async () => {
-            const res = await getFhir(method.getValues("fhirResource"));
+            const res = await getResourceList(method.getValues("fhirResource"));
             return res.data;
         },
         onSuccess: (data) => {
-            console.log('onSuccess:', data);
-            if(data.code === 0) {
-                popUp.openPopUp("成功取回資料", false);
-            }else{
-                popUp.openPopUp("取回資料失敗:"+data, true);
-            }
+            fhir.setFhirJson(JSON.stringify(data))
         }
     });
 
     return (
         <Box className="flex flex-col items-center justify-center h-screen w-full text-2xl">
             <FormProvider {...method}>
-                <Form>
+                <Form className={"flex flex-col"}>
                     <CustomFormRadio name={"fhirResource"} options={options} />
                     <CustomButton text={"取得FHIR資料"} onClick={() => getData()} />
                 </Form>
             </FormProvider>
+            {fhir.fhirJson && (
+                <FhirResourceListReader />
+            )}
             <Box className={"flex mt-4 gap-2"}>
                 <CustomButton text={"返回"} onClick={() => handleNavigate('/test')} />
             </Box>
+
         </Box>
     )
 }

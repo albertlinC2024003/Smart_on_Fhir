@@ -16,6 +16,12 @@ export const getNormal = async (data:any) => {
 export const getPrivate = async (data:any) => {
     return api.post<ResponseData<Map<string, string>>>('/private/getData',{});
 }
-export const getFhir = async (fhirResource: string) => {
-    return api.get<ResponseData<string>>('/fhir/'+fhirResource);
+export const getFhirResource = async (fhirResource: string) => {
+    return api.get<string>('/fhir/'+fhirResource);
+}
+export const getByFullUrl = async (fullUrl: string) => {
+    return api.get<string>(fullUrl);
+}
+export const getResourceList = async (fhirResource: string) => {
+    return api.get<string>('/fhir/'+fhirResource+'?_count=10&_format=json&_summary=true');
 }

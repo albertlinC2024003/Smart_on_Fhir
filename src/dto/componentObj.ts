@@ -5,7 +5,7 @@ import type { UseQueryResult } from "@tanstack/react-query";
 import type { AuthData } from "./dataObj";
 import type { QueryPK } from "../enum/tanstackQueryKey";
 import type {StorageKey} from "../enum/system";
-import type {PopupSize} from "../enum/component";
+import {FhirResource, PopupSize} from "../enum/component";
 
 export interface ComponentOption {
     label: string
@@ -87,6 +87,14 @@ export interface AuthMethod {
   appLogin: (userId: string) => void;
   appLogout: () => void;
   authLogout: () => void;
+}
+export interface FhirStorage {
+    fhirJson: string;
+    setFhirJson: (json: string) => void;
+    fullUrl: string;
+    setFullUrl: (url: string) => void;
+    fhirResource: FhirResource;
+    setFhirResource: (type: FhirResource) => void;
 }
 export interface PopUpMethod {
     openPopUp: (msg: string, focus: boolean, size?:PopupSize, actionAfterClose?: ()=> void) => void;

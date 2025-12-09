@@ -12,6 +12,7 @@ const AuthContext = createContext<AuthData>({status: AuthStatus.Auth_Loading});
 
 export const useAuth = () => {
     const authData = useContext(AuthContext);
+    console.log('authData in useAuth=',authData);
     if (!authData) {
         throw new Error("useAuth must be used within an AuthProvider");
     }
@@ -20,7 +21,7 @@ export const useAuth = () => {
         authData.userId = userId;
         localS.setItem(StorageKey.userId, userId);
     }
-    const appLogout = () => {
+    const appLogout = async () => {
         authData.status = AuthStatus.Auth_SignedOut;
         authData.userId = '未登入';
         localS.removeItem(StorageKey.userId);
@@ -69,13 +70,15 @@ export const useAuth = () => {
 const AuthProvider = ({children}: { children: ReactNode }) => {
     const {authData, appLogin, appLogout, authLogout} = useAuth();
     const {localStorage, sessionStorage} = useProvider();
-    // const token = sessionStorage.getItem(StorageKey.csrf);
-    // const userId = localStorage.getItem(StorageKey.userId);
-    // if (token !== null && userId !== null) {
-    //   authLogin(userId);
-    // } else {
-    //   authLogout();
-    // }
+    const userId = localStorage.getItem(StorageKey.userId);
+    console.log('userId=',userId);
+    if (userId !== null) {
+        console.log('有登入');
+        appLogin(userId);
+    } else {
+        console.log('未登入');
+        appLogout();
+    }
     return <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>;
 };
 export default AuthProvider;

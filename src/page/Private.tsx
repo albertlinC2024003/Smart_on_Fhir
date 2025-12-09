@@ -10,7 +10,7 @@ import {useProvider} from "../utils/ComponentProvider.tsx";
 
 const Private = () => {
     const navigate = useNavigate();
-    const { popUp } = useProvider();
+    const { fhir, popUp } = useProvider();
     const handleNavigate = (path: string) => {
         navigate(path);
     };
@@ -37,7 +37,7 @@ const Private = () => {
             }
         }
     });
-
+    console.log('private fhirJson=',fhir.fhirJson);
     return (
         <Box className="flex flex-col items-center justify-center h-screen w-full text-2xl">
             <ScopeSelector onConfirm={handleScopeConfirm} />

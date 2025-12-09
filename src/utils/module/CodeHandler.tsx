@@ -66,7 +66,7 @@ const CodeHandler = () => {
                 sessionS.setItem(StorageKey.idToken, id_token);
 
                 // 6. 導向到主頁或使用者原本想去的頁面
-                navigate('/private'); // 或者導向到一個更合適的登入後首頁
+                navigate('/fhirGetter'); // 或者導向到一個更合適的登入後首頁
 
             } catch (err: any) {
                 const errorMsg = err.response?.data?.error_description || err.message;

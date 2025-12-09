@@ -25,6 +25,7 @@ export enum UrlPath {
     NORMAL = '/normal',
     PRIVATE = '/private',
     FHIR_GETTER = '/fhirGetter',
+    V_SINGLE = '/SingleResourceViewer',
     CODE_HANDLER = '/codeHandler',
     LOBBY = '/',
     VIEW_ORG = '/ViewOrg',

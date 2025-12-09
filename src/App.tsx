@@ -28,8 +28,7 @@ function App() {
                     <ThemeProvider theme={theme}>
                         <Provider store={store}>
                             <ComponentProvider>
-                                <MyRouter>
-                                </MyRouter>
+                                <MyRouter />
                             </ComponentProvider>
                         </Provider>
                     </ThemeProvider>

@@ -42,9 +42,13 @@ api.interceptors.response.use(
     },
     async (error) => {
         const originalRequest = error.config;
+        if(originalRequest._retry){
+            console.log("重試失敗，停止重試");
+        }
         // 檢查是否為 401 錯誤且不是刷新 token 本身的請求失敗
         if (error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true; // 標記為已重試，避免無限循環
+            console.log("初次 401 錯誤，嘗試刷新 token", error.response.data);
             try {
                 const newAccessToken = await refreshToken();
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + newAccessToken; // 更新全域預設標頭 避免多個請求同時失敗時使用舊的token
@@ -64,6 +68,7 @@ const refreshToken = async () => {
         console.log('refresh token');
         const refreshToken = sessionS.getItem(StorageKey.refreshToken);
         if (!refreshToken) {
+            console.log("沒有refreshToken，直接拋出NotLoginError");
             throw new NotLoginError();
         }
 

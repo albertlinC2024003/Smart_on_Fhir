@@ -4,6 +4,7 @@ import Test from './Test';
 import Normal from './Normal';
 import Private from './Private';
 import FhirGetter from "./FhirGetter";
+import SingleResourceViewer from "./fhir/view/SingleResourceViewer";
 import CodeHandler from '../utils/module/CodeHandler.tsx';
 import Lobby from './Lobby';
 
@@ -15,5 +16,6 @@ export default {
     Normal,
     Private,
     FhirGetter,
+    SingleResourceViewer,
     CodeHandler,
 }

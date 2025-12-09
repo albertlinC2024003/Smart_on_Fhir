@@ -63,6 +63,12 @@ const routerData = createBrowserRouter(
             )
         },
         {
+            path: UrlPath.V_SINGLE,
+            element: (
+                <Page.SingleResourceViewer />
+            )
+        },
+        {
             path: UrlPath.CODE_HANDLER,
             element: (
                 <Page.CodeHandler />

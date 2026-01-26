@@ -19,12 +19,16 @@ export enum TabId {
     none = '',
 }
 export enum UrlPath {
+    EHR_ENTRY = '/EHREntry',
+    EHR_LAUNCH = '/EHRLaunch',
     LOGIN = '/login',
     ERROR = '/error',
     TEST = '/test',
     NORMAL = '/normal',
     PRIVATE = '/private',
     FHIR_GETTER = '/fhirGetter',
+    CQL_GETTER = '/cqlGetter',
+    FHIR_REACT = '/fhirReact',
     V_SINGLE = '/SingleResourceViewer',
     CODE_HANDLER = '/codeHandler',
     LOBBY = '/',

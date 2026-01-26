@@ -27,18 +27,16 @@ const CustomFormInput: React.FC<FormInputProps> = ({
                         ...validateRule
                     }}
                     render={({field}) => (
-                        <>
-                            <TextField
-                                {...field}
-                                {...rest}
-                                size={size}
-                                required={required}
-                                label={label}
-                                variant="outlined"
-                                error={!!errors[name]}
-                                value={field.value ?? ''}
-                            />
-                        </>
+                        <TextField
+                            {...field}
+                            {...rest}
+                            size={size}
+                            required={required}
+                            label={label}
+                            variant="outlined"
+                            error={!!errors[name]}
+                            value={field.value ?? ''}
+                        />
                     )}
                 />
                 {/*為了能更細部的控制畫面 可以設定元件是否要保留錯誤提示的空間*/}

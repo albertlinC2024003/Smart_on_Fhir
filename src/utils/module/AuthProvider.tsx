@@ -9,10 +9,8 @@ import {CLIENT_ID, LOGOUT_REDIRECT_URL, LOGOUT_URL, REVOCATION_URL} from "../../
 
 const AuthContext = createContext<AuthData>({status: AuthStatus.Auth_Loading});
 
-
 export const useAuth = () => {
     const authData = useContext(AuthContext);
-    console.log('authData in useAuth=',authData);
     if (!authData) {
         throw new Error("useAuth must be used within an AuthProvider");
     }
@@ -52,14 +50,15 @@ export const useAuth = () => {
             sessionS.removeItem(StorageKey.accessToken);
             sessionS.removeItem(StorageKey.refreshToken);
             sessionS.removeItem(StorageKey.idToken);
-
             // 步驟 3: 重新導向到 Keycloak 登出頁面
             // post_logout_redirect_uri 告訴 Keycloak 登出後要跳轉回哪裡
             // 這個 URL 必須在 Keycloak Client 設定的 "Valid Post Logout Redirect URIs" 中註冊
             const logoutUrl = new URL(LOGOUT_URL);
             logoutUrl.searchParams.append('post_logout_redirect_uri', LOGOUT_REDIRECT_URL);
             logoutUrl.searchParams.append('client_id', CLIENT_ID);
-
+            console.log(logoutUrl.toString());
+            // setTimeout(() => {
+            // }, 3000);
             window.location.href = logoutUrl.toString();
         }
     };
@@ -69,8 +68,7 @@ export const useAuth = () => {
 
 const AuthProvider = ({children}: { children: ReactNode }) => {
     const {authData, appLogin, appLogout, authLogout} = useAuth();
-    const {localStorage, sessionStorage} = useProvider();
-    const userId = localStorage.getItem(StorageKey.userId);
+    const userId = localS.getItem(StorageKey.userId);
     console.log('userId=',userId);
     if (userId !== null) {
         console.log('有登入');

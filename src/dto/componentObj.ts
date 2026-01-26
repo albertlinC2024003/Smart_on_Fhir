@@ -68,8 +68,7 @@ export interface PopUpDetail {
   message: string;
   setMessage: React.Dispatch<React.SetStateAction<string>>;
   actionAfterClose: () => void;
-  //原警示訊息
-  openNotification: (msg: string, severity: string) => void;
+  setActionAfterClose: (cb: () => void) => void;
   //loading畫面
   openMask: boolean;
   setOpenMask: React.Dispatch<React.SetStateAction<boolean>>;
@@ -99,5 +98,4 @@ export interface FhirStorage {
 export interface PopUpMethod {
     openPopUp: (msg: string, focus: boolean, size?:PopupSize, actionAfterClose?: ()=> void) => void;
     loading: (openMask: boolean, loading?: boolean) => void;
-    openNotification: (msg: string, severity: string) => void;
 }

@@ -17,12 +17,14 @@ export const sidebarItems: SidebarItem[] = [
 const ProtectedRouter = () => {
     const { auth } = useProvider();
     if (auth.authData.status === AuthStatus.Auth_SignedIn) {
+        console.log('已登入')
         return (
             <PathListener>
                 <Outlet />
             </PathListener>
         );
     } else {
+        console.log('導轉')
         return <Navigate to={UrlPath.LOGIN} replace />;
     }
 };
@@ -36,6 +38,18 @@ const routerData = createBrowserRouter(
             path: UrlPath.LOGIN,
             element: (
                 <Page.Test />
+            )
+        },
+        {
+            path: UrlPath.EHR_ENTRY,
+            element: (
+                <Page.EHREntry />
+            )
+        },
+        {
+            path: UrlPath.EHR_LAUNCH,
+            element: (
+                <Page.EHRLaunch />
             )
         },
         {
@@ -60,6 +74,18 @@ const routerData = createBrowserRouter(
             path: UrlPath.FHIR_GETTER,
             element: (
                 <Page.FhirGetter />
+            )
+        },
+        {
+            path: UrlPath.FHIR_REACT,
+            element: (
+                <Page.BonFhir />
+            )
+        },
+        {
+            path: UrlPath.CQL_GETTER,
+            element: (
+                <Page.CQLGetter />
             )
         },
         {

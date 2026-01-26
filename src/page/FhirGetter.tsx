@@ -1,15 +1,11 @@
 import { Box } from "@mui/material";
 import CustomButton from "../component/input/CustomButton.tsx";
 import {Form, useNavigate} from "react-router-dom";
-import {useState} from "react";
 import {useMutation} from "@tanstack/react-query";
 import {getResourceList} from "../api/auth.ts";
 import {useProvider} from "../utils/ComponentProvider.tsx";
 import CustomFormRadio from "../component/input/form/CustomFormRadio.tsx";
 import {FormProvider, useForm} from "react-hook-form";
-import {FhirBundle} from "../dto/dataObj.ts";
-import FhirResourceParser from "./fhir/view/FhirResourceParser.tsx";
-import {FhirResource} from "../enum/component.ts";
 import FhirResourceListReader from "./FhirResourceListReader.tsx";
 
 const options = [
@@ -61,7 +57,6 @@ const FhirGetter = () => {
             <Box className={"flex mt-4 gap-2"}>
                 <CustomButton text={"返回"} onClick={() => handleNavigate('/test')} />
             </Box>
-
         </Box>
     )
 }

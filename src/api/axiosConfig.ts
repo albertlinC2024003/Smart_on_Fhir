@@ -34,10 +34,6 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
     (response) => {
-        const headers = response.headers
-        // if (response.data.code === 101 || response.data.code === 105) {
-        //     sessionS.removeItem(StorageKey.csrf)
-        // }
         return response
     },
     async (error) => {
@@ -53,8 +49,12 @@ api.interceptors.response.use(
                 const newAccessToken = await refreshToken();
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + newAccessToken; // 更新全域預設標頭 避免多個請求同時失敗時使用舊的token
                 originalRequest.headers['Authorization'] = 'Bearer ' + newAccessToken;
+                console.log("token成功刷新 token");
                 return api(originalRequest); // 使用新的 token 重試原始請求
             } catch (refreshError) {
+                const { url, method, headers, params, data } = originalRequest;
+                console.log("紀錄當前API=",url, method);
+                sessionS.setItem(StorageKey.previousApi, JSON.stringify({ url, method, headers, params, data }));
                 return Promise.reject(refreshError);
             }
         }

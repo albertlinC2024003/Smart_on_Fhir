@@ -5,8 +5,9 @@ import { sessionS } from "./ProjectStorage.ts";
 import { StorageKey } from "../../enum/system.ts";
 import axios from "axios";
 import {CLIENT_ID, TOKEN_REDIRECT_URL, TOKEN_URL} from "../../auth/authConfig.ts";
+import {UrlPath} from "./PathListener.tsx";
 
-// 這個元件現在是處理 OAuth2 回調的專用元件
+// 這個元件是處理 OAuth2 回調的專用元件
 const CodeHandler = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -66,11 +67,14 @@ const CodeHandler = () => {
                 sessionS.setItem(StorageKey.idToken, id_token);
 
                 // 6. 導向到主頁或使用者原本想去的頁面
-                navigate('/fhirGetter'); // 或者導向到一個更合適的登入後首頁
+                var path = sessionS.getItem(StorageKey.previousPage) ?? UrlPath.TEST;
+                navigate(path); // 或者導向到一個更合適的登入後首頁
 
             } catch (err: any) {
                 const errorMsg = err.response?.data?.error_description || err.message;
                 setError(`交換權杖失敗: ${errorMsg}`);
+            } finally {
+                sessionS.removeItem(StorageKey.previousPage);
             }
         };
 

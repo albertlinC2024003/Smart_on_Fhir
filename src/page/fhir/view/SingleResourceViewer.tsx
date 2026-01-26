@@ -15,7 +15,8 @@ const SingleResourceViewer = () =>{
         queryKey: ['fhirResource', fhir.fullUrl],
         queryFn: async () => {
             return await getByFullUrl(fhir.fullUrl);
-        }
+        },
+        enabled: fhir.fullUrl !== '',
     })
     useEffect(()=>{
         if(data){

@@ -25,3 +25,6 @@ export const getByFullUrl = async (fullUrl: string) => {
 export const getResourceList = async (fhirResource: string) => {
     return api.get<string>('/fhir/'+fhirResource+'?_count=10&_format=json&_summary=true');
 }
+export const cqlQuery = async (fhirResource: string) => {
+    return api.post<string>('/fhir/$cql', fhirResource);
+}

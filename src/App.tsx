@@ -6,6 +6,9 @@ import { Provider } from 'react-redux'
 import MyRouter from "./route/route.tsx";
 import store from "./utils/module/reduxStore.ts";
 import './assets/css/tailwind.css'
+import {FhirUIProvider} from "@bonfhir/react/r4b";
+import { MantineRenderer } from "@bonfhir/mantine/r4b";
+import { MantineProvider } from "@mantine/core";
 
 const theme = createTheme({
     palette: {
@@ -24,15 +27,19 @@ function App() {
     return (
         <>
             <AuthProvider>
-                <AxiosInstance>
-                    <ThemeProvider theme={theme}>
-                        <Provider store={store}>
-                            <ComponentProvider>
-                                <MyRouter />
-                            </ComponentProvider>
-                        </Provider>
-                    </ThemeProvider>
-                </AxiosInstance>
+                <ThemeProvider theme={theme}>
+                    <Provider store={store}>
+                        <MantineProvider>
+                            <FhirUIProvider renderer={MantineRenderer}>
+                                <ComponentProvider>
+                                    <AxiosInstance>
+                                        <MyRouter/>
+                                    </AxiosInstance>
+                                </ComponentProvider>
+                            </FhirUIProvider>
+                        </MantineProvider>
+                    </Provider>
+                </ThemeProvider>
             </AuthProvider>
         </>
     )

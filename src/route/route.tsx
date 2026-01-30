@@ -43,13 +43,31 @@ const routerData = createBrowserRouter(
         {
             path: UrlPath.EHR_ENTRY,
             element: (
-                <Page.EHREntry />
+                <Page.EHRDoc />
             )
         },
         {
-            path: UrlPath.EHR_LAUNCH,
+            path: UrlPath.EHR_CHRONIC_DISEASE,
             element: (
-                <Page.EHRLaunch />
+                <Page.ChronicDisease />
+            )
+        },
+        {
+            path: UrlPath.EHR_MEDICATION_RISK,
+            element: (
+                <Page.MedicationRisk />
+            )
+        },
+        {
+            path: UrlPath.EHR_CHRONIC_TRACKER,
+            element: (
+                <Page.ChronicTracker />
+            )
+        },
+        {
+            path: UrlPath.EHR_MEDICATION_STATISTIC,
+            element: (
+                <Page.MedicationStatistic />
             )
         },
         {

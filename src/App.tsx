@@ -9,6 +9,7 @@ import './assets/css/tailwind.css'
 import {FhirUIProvider} from "@bonfhir/react/r4b";
 import { MantineRenderer } from "@bonfhir/mantine/r4b";
 import { MantineProvider } from "@mantine/core";
+import {FhirProvider} from "./utils/module/FhirContext.tsx";
 
 const theme = createTheme({
     palette: {
@@ -26,21 +27,23 @@ const theme = createTheme({
 function App() {
     return (
         <>
-            <AuthProvider>
-                <ThemeProvider theme={theme}>
-                    <Provider store={store}>
-                        <MantineProvider>
-                            <FhirUIProvider renderer={MantineRenderer}>
-                                <ComponentProvider>
-                                    <AxiosInstance>
-                                        <MyRouter/>
-                                    </AxiosInstance>
-                                </ComponentProvider>
-                            </FhirUIProvider>
-                        </MantineProvider>
-                    </Provider>
-                </ThemeProvider>
-            </AuthProvider>
+            <FhirProvider>
+                <AuthProvider>
+                    <ThemeProvider theme={theme}>
+                        <Provider store={store}>
+                            <MantineProvider>
+                                <FhirUIProvider renderer={MantineRenderer}>
+                                    <ComponentProvider>
+                                        <AxiosInstance>
+                                            <MyRouter/>
+                                        </AxiosInstance>
+                                    </ComponentProvider>
+                                </FhirUIProvider>
+                            </MantineProvider>
+                        </Provider>
+                    </ThemeProvider>
+                </AuthProvider>
+            </FhirProvider>
         </>
     )
 }

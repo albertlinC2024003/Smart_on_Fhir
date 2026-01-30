@@ -1,0 +1,215 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:p-01",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿天龍", "family": "睿", "given": ["天龍"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-01" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I10" }], "text": "原發性高血壓" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-01" }, "authoredOn": "2025-10-01", "medicationCodeableConcept": { "text": "Amlodipine 5mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-02",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿雲海", "family": "睿", "given": ["雲海"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-02" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9" }], "text": "第二型糖尿病" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-02" }, "authoredOn": "2025-10-05", "medicationCodeableConcept": { "text": "Metformin 500mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 28, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-03",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿星辰", "family": "睿", "given": ["星辰"] }], "gender": "female" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-03" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E78.5" }], "text": "高脂血症" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-03" }, "authoredOn": "2025-10-10", "medicationCodeableConcept": { "text": "Atorvastatin 10mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-04",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿震遠", "family": "睿", "given": ["震遠"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-04" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I25.10" }], "text": "冠狀動脈心臟病" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-04" }, "authoredOn": "2025-09-20", "medicationCodeableConcept": { "text": "Aspirin 100mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-05",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿秋霜", "family": "睿", "given": ["秋霜"] }], "gender": "female" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-05" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "J44.9" }], "text": "慢性阻塞性肺病" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-05" }, "authoredOn": "2025-09-15", "medicationCodeableConcept": { "text": "Seretide Inhaler" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-06",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿承德", "family": "睿", "given": ["承德"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-06" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I10" }], "text": "高血壓" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-06" }, "authoredOn": "2025-12-01", "medicationCodeableConcept": { "text": "Valsartan 80mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-07",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿語嫣", "family": "睿", "given": ["語嫣"] }], "gender": "female" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-07" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9" }], "text": "糖尿病" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-07" }, "authoredOn": "2025-12-05", "medicationCodeableConcept": { "text": "Gliclazide 30mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 28, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-08",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿子建", "family": "睿", "given": ["子建"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-08" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E78.5" }], "text": "高血脂" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-08" }, "authoredOn": "2025-12-10", "medicationCodeableConcept": { "text": "Rosuvastatin 10mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-09",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿柏勳", "family": "睿", "given": ["柏勳"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-09" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I48.91" }], "text": "心房顫動" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-09" }, "authoredOn": "2025-11-25", "medicationCodeableConcept": { "text": "Warfarin 5mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-10",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿婉君", "family": "睿", "given": ["婉君"] }], "gender": "female" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-10" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "M19.90" }], "text": "退化性關節炎" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-10" }, "authoredOn": "2025-12-01", "medicationCodeableConcept": { "text": "Celecoxib 200mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 28, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-11",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿志平", "family": "睿", "given": ["志平"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-11" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I10" }], "text": "高血壓" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-11" }, "authoredOn": "2026-01-20", "medicationCodeableConcept": { "text": "Amlodipine 5mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-12",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿思琪", "family": "睿", "given": ["思琪"] }], "gender": "female" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-12" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9" }], "text": "糖尿病" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-12" }, "authoredOn": "2026-01-25", "medicationCodeableConcept": { "text": "Metformin 500mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-13",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿大維", "family": "睿", "given": ["大維"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-13" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E78.5" }], "text": "高脂血症" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-13" }, "authoredOn": "2026-01-15", "medicationCodeableConcept": { "text": "Atorvastatin 20mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 28, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-14",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿美玲", "family": "睿", "given": ["美玲"] }], "gender": "female" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-14" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I10" }], "text": "高血壓" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-14" }, "authoredOn": "2026-01-27", "medicationCodeableConcept": { "text": "Losartan 50mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-15",
+      "resource": { "resourceType": "Patient", "name": [{ "use": "official", "text": "睿耀廷", "family": "睿", "given": ["耀廷"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-15" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9" }], "text": "糖尿病" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-15" }, "authoredOn": "2026-01-10", "medicationCodeableConcept": { "text": "Insulin Glargine" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    }
+  ]
+}

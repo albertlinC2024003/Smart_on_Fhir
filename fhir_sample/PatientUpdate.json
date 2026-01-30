@@ -1,0 +1,200 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": { "resourceType": "Patient", "id": "701797", "name": [{ "use": "official", "text": "睿天龍", "family": "睿", "given": ["天龍"] }], "gender": "male" },
+      "request": { "method": "PUT", "url": "Patient/701797" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "701800", "subject": { "reference": "Patient/701797" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I10" }], "text": "原發性高血壓" } },
+      "request": { "method": "PUT", "url": "Condition/701800" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "701799", "status": "active", "intent": "order", "subject": { "reference": "Patient/701797" }, "authoredOn": "2025-10-01", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "426918000", "display": "Amlodipine 5mg tablet" }], "text": "Amlodipine 5mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/701799" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "701803", "name": [{ "use": "official", "text": "睿雲海", "family": "睿", "given": ["雲海"] }], "gender": "male" },
+      "request": { "method": "PUT", "url": "Patient/701803" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "701803", "subject": { "reference": "Patient/701803" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9" }], "text": "第二型糖尿病" } },
+      "request": { "method": "PUT", "url": "Condition/701803" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "701803", "status": "active", "intent": "order", "subject": { "reference": "Patient/701803" }, "authoredOn": "2025-10-05", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "332468001", "display": "Metformin 500mg tablet" }], "text": "Metformin 500mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 28, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/701803" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿星辰", "family": "睿", "given": ["星辰"] }], "gender": "female" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E78.5" }], "text": "高脂血症" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2025-10-10", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "412235002", "display": "Atorvastatin 10mg tablet" }], "text": "Atorvastatin 10mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿震遠", "family": "睿", "given": ["震遠"] }], "gender": "male" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I25.10" }], "text": "冠狀動脈心臟病" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2025-09-20", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "387403001", "display": "Aspirin 100mg tablet" }], "text": "Aspirin 100mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿秋霜", "family": "睿", "given": ["秋霜"] }], "gender": "female" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "J44.9" }], "text": "慢性阻塞性肺病" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2025-09-15", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "346747000", "display": "Fluticasone/Salmeterol 250/50 mcg inhaler" }], "text": "Seretide Inhaler" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿承德", "family": "睿", "given": ["承德"] }], "gender": "male" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I10" }], "text": "高血壓" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2025-12-01", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "319080004", "display": "Valsartan 80mg tablet" }], "text": "Valsartan 80mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿語嫣", "family": "睿", "given": ["語嫣"] }], "gender": "female" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9" }], "text": "糖尿病" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2025-12-05", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "332822008", "display": "Gliclazide 30mg tablet" }], "text": "Gliclazide 30mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 28, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿子建", "family": "睿", "given": ["子建"] }], "gender": "male" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E78.5" }], "text": "高血脂" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2025-12-10", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "404831001", "display": "Rosuvastatin 10mg tablet" }], "text": "Rosuvastatin 10mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿柏勳", "family": "睿", "given": ["柏勳"] }], "gender": "male" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I48.91" }], "text": "心房顫動" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2025-11-25", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "387063004", "display": "Warfarin 5mg tablet" }], "text": "Warfarin 5mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿婉君", "family": "睿", "given": ["婉君"] }], "gender": "female" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "M19.90" }], "text": "退化性關節炎" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2025-12-01", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "387340003", "display": "Celecoxib 200mg capsule" }], "text": "Celecoxib 200mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 28, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿志平", "family": "睿", "given": ["志平"] }], "gender": "male" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I10" }], "text": "高血壓" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2026-01-20", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "426918000", "display": "Amlodipine 5mg tablet" }], "text": "Amlodipine 5mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿思琪", "family": "睿", "given": ["思琪"] }], "gender": "female" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9" }], "text": "糖尿病" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2026-01-25", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "332468001", "display": "Metformin 500mg tablet" }], "text": "Metformin 500mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿大維", "family": "睿", "given": ["大維"] }], "gender": "male" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E78.5" }], "text": "高脂血症" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2026-01-15", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "412288001", "display": "Atorvastatin 20mg tablet" }], "text": "Atorvastatin 20mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 28, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿美玲", "family": "睿", "given": ["美玲"] }], "gender": "female" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I10" }], "text": "高血壓" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2026-01-27", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "319113009", "display": "Losartan 50mg tablet" }], "text": "Losartan 50mg" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    },
+
+    {
+      "resource": { "resourceType": "Patient", "id": "XXX", "name": [{ "use": "official", "text": "睿耀廷", "family": "睿", "given": ["耀廷"] }], "gender": "male" },
+      "request": { "method": "PUT", "url": "Patient/XXX" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "id": "XXX", "subject": { "reference": "Patient/XXX" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9" }], "text": "糖尿病" } },
+      "request": { "method": "PUT", "url": "Condition/XXX" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "id": "XXX", "status": "active", "intent": "order", "subject": { "reference": "Patient/XXX" }, "authoredOn": "2026-01-10", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "25388007", "display": "Insulin Glargine 100 units/mL injection" }], "text": "Insulin Glargine" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "PUT", "url": "MedicationRequest/XXX" }
+    }
+  ]
+}

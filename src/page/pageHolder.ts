@@ -9,8 +9,15 @@ import SingleResourceViewer from "./fhir/view/SingleResourceViewer";
 import BonFhir from "./fhir/view/BonFhir.tsx";
 import CodeHandler from '../utils/module/CodeHandler.tsx';
 import Lobby from './Lobby';
-import EHREntry from './EHREntry';
-import EHRLaunch from './Launch';
+// import EHREntry from './EHREntry';
+import EHREntry from './SearchByCondition';
+import EHRDoc from './EHRDoc';//大廳
+
+import ChronicDisease from './ehr/ChronicDiseaseDashBoard.tsx';
+import MedicationRisk from './ehr/MedicationRiskDashBoard.tsx';
+import ChronicTracker from './ehr/ChronicTracker.tsx';
+import MedicationStatistic from './ehr/MedicationStatistic.tsx';
+// import EHRLaunch from './Launch';
 
 export default {
     ErrorPage,
@@ -25,5 +32,10 @@ export default {
     SingleResourceViewer,
     CodeHandler,
     EHREntry,
-    EHRLaunch,
+    // EHRLaunch,
+    EHRDoc,
+    ChronicDisease,
+    MedicationRisk,
+    ChronicTracker,
+    MedicationStatistic,
 }

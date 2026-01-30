@@ -10,34 +10,55 @@ import {
     Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import {useFhir} from "../utils/module/FhirContext.tsx";
 
 // 註冊 Chart.js 必要元件
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const EHREntry = () => {
-    const [client, setClient] = useState(null);
+    // const [client, setClient] = useState(null);
     const [chartData, setChartData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    console.log("進入 EHREntry");
+    // useEffect(() => {
+    //     console.log("初始化 SMART Client");
+    //     // 1. 初始化 SMART Client
+    //     FHIR.oauth2.ready()
+    //         .then((client) => {
+    //             console.log("取得Client", client);
+    //             const tokenResponse = client.state.tokenResponse;
+    //             console.log("Access Token:", tokenResponse.access_token);
+    //
+    //             // 3. 獲取 Id Token (包含使用者資訊，通常是 JWT 格式)
+    //             console.log("ID Token:", tokenResponse.id_token);
+    //
+    //             // 4. 獲取當前病患 ID
+    //             console.log("Patient ID:", client.patient.id);
+    //             setClient(client);
+    //             return fetchConditions(client);
+    //         })
+    //         .catch((err) => {
+    //             console.log("授權失敗", err);
+    //             setError(`授權失敗: ${err.message}`);
+    //             setLoading(false);
+    //         });
+    // }, []);
 
+    const { client, patientId } = useFhir();
     useEffect(() => {
-        // 1. 初始化 SMART Client
-        FHIR.oauth2.ready()
-            .then((client) => {
-                setClient(client);
-                return fetchConditions(client);
-            })
-            .catch((err) => {
-                setError(`授權失敗: ${err.message}`);
-                setLoading(false);
-            });
-    }, []);
+        if (client) {
+            console.log("取得 Client:", client);
+            console.log("Patient ID:", patientId);
+            fetchConditions(client);
+        }
+    }, [client]);
 
     const fetchConditions = async (fhirClient) => {
         try {
             // 2. 設定查詢條件 (最近 90 天)
             const d = new Date();
-            d.setDate(d.getDate() - 90);
+            d.setDate(d.getDate() - 3650);
             const startDate = d.toISOString().split('T')[0];
 
             // 抓取 Condition

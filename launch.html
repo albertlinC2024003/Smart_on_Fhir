@@ -8,10 +8,11 @@
 <p>正在連線至 EHR 系統...</p>
 <script>
     FHIR.oauth2.authorize({
-        // 這裡的 client_id 在 SMART Launcher 測試時可以隨便填
-        "client_id": "clinic_stats_app",// 改成註冊的 client_id
-        "scope": "launch patient/*.read user/*.read openid fhirUser",// 根據需求調整 scope
-        "redirect_uri": "http://192.168.41.8:8087/EHREntry" // 改成應用程式 正式URL
+        clientId: "clinic_stats_app",// 改成註冊的 client_id
+        scope: "launch patient/*.read user/*.read openid fhirUser",// 根據需求調整 scope
+        redirectUri: "http://localhost:8087/EHREntry", // 改成應用程式 正式URL
+        // 加入下面這行解決報錯
+        // completeInTarget: true
     });
 </script>
 </body>

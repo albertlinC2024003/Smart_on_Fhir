@@ -2,7 +2,7 @@ import {createContext, useContext, useState} from 'react';
 import type { FhirStorage } from "../../dto/componentObj.ts";
 import { FhirResource } from "../../enum/component.ts";
 
-const FhirContext = createContext<FhirStorage>({
+const storage = createContext<FhirStorage>({
     fhirJson: '',
     fullUrl: '',
     fhirResource: undefined,
@@ -12,7 +12,7 @@ const FhirContext = createContext<FhirStorage>({
 });
 
 export const useFhirStorage = () => {
-    const context = useContext(FhirContext);
+    const context = useContext(storage);
     const [fhirJson, setFhirJson] = useState('');
     const [fullUrl, setFullUrl] = useState('');
     const [fhirResource, setFhirResource] = useState<FhirResource>();

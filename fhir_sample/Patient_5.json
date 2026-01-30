@@ -1,0 +1,75 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:p-acute-01",
+      "resource": { "resourceType": "Patient", "name": [{ "text": "睿零一", "family": "睿", "given": ["零一"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-acute-01" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "J02.9", "display": "Acute pharyngitis" }], "text": "急性咽喉炎" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-acute-01" }, "authoredOn": "2026-01-28", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "709410003", "display": "Acetaminophen 500mg tablet" }], "text": "普拿疼" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 3, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-acute-02",
+      "resource": { "resourceType": "Patient", "name": [{ "text": "睿零二", "family": "睿", "given": ["零二"] }], "gender": "female" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-acute-02" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "J20.9", "display": "Acute bronchitis" }], "text": "急性支氣管炎" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-acute-02" }, "authoredOn": "2026-01-27", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "412215004", "display": "Amoxicillin 500mg capsule" }], "text": "抗生素" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 7, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-chronic-03",
+      "resource": { "resourceType": "Patient", "name": [{ "text": "睿零三", "family": "睿", "given": ["零三"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-chronic-03" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "I10", "display": "Essential hypertension" }], "text": "原發性高血壓" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-chronic-03" }, "authoredOn": "2025-10-01", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "426918000", "display": "Amlodipine 5mg tablet" }], "text": "脈優" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-chronic-04",
+      "resource": { "resourceType": "Patient", "name": [{ "text": "睿零四", "family": "睿", "given": ["零四"] }], "gender": "female" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-chronic-04" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9", "display": "Type 2 diabetes mellitus" }], "text": "第二型糖尿病" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-chronic-04" }, "authoredOn": "2025-11-05", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "332468001", "display": "Metformin 500mg tablet" }], "text": "美獲平" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 28, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:p-chronic-05",
+      "resource": { "resourceType": "Patient", "name": [{ "text": "睿零五", "family": "睿", "given": ["零五"] }], "gender": "male" },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "resource": { "resourceType": "Condition", "subject": { "reference": "urn:uuid:p-chronic-05" }, "code": { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "N18.3", "display": "Chronic kidney disease, stage 3" }], "text": "慢性腎臟病第三期" } },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "resource": { "resourceType": "MedicationRequest", "status": "active", "intent": "order", "subject": { "reference": "urn:uuid:p-chronic-05" }, "authoredOn": "2025-12-10", "medicationCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "412288001", "display": "Atorvastatin 20mg tablet" }], "text": "立普妥" }, "dispenseRequest": { "expectedSupplyDuration": { "value": 30, "unit": "days" } } },
+      "request": { "method": "POST", "url": "MedicationRequest" }
+    }
+  ]
+}

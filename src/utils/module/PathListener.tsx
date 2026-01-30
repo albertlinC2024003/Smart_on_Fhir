@@ -21,6 +21,14 @@ export enum TabId {
 export enum UrlPath {
     EHR_ENTRY = '/EHREntry',
     EHR_LAUNCH = '/EHRLaunch',
+    EHR_CHRONIC_DISEASE = '/ChronicDisease',
+    EHR_MEDICATION_RISK = '/MedicationRisk',
+    EHR_CHRONIC_TRACKER = '/ChronicTracker',
+    EHR_MEDICATION_STATISTIC = '/MedicationStatistic',
+
+
+
+
     LOGIN = '/login',
     ERROR = '/error',
     TEST = '/test',
